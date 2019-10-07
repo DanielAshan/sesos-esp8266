@@ -1,0 +1,14 @@
+var WIFI_NAME = "WiFi name;
+var WIFI_OPTIONS = {
+  password: "password"
+};
+var wifi = require("Wifi");
+var http = require('http');
+
+wifi.connect(WIFI_NAME, WIFI_OPTIONS, function(err) {
+  if (err) {
+    console.log("Connection error: " + err);
+    return;
+  }
+  console.log("Connected!");
+});
