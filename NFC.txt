@@ -1,0 +1,11 @@
+var spi = new SPI();
+spi.setup({
+  mosi: NodeMCU.D5,
+  miso: NodeMCU.D4,
+  sck: NodeMCU.D3
+});
+var nfc = require("MFRC522").connect(spi, NodeMCU.D2 /*CS*/ );
+setInterval(function() {
+  nfc.findCards(function(card) {
+    print("Found card " + card);
+    card = JSON.stringify(card);
