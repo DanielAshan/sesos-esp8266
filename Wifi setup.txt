@@ -12,3 +12,5 @@ wifi.connect(WIFI_NAME, WIFI_OPTIONS, function(err) {
   }
   console.log("Connected!");
 });
+
+// komentarz ¿eby do ogarniecia gita
