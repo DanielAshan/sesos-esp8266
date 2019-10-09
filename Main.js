@@ -1,28 +1,30 @@
 
 // SPI SETUP
-
+var spi = new SPI();
 spi.setup({
-  mosi: NodeMCU.D5,
-  miso: NodeMCU.D4,
-  sck: NodeMCU.D3
+  mosi: NodeMCU.D6,
+  miso: NodeMCU.D7,
+  sck: NodeMCU.D8
 });
 
-var nfc = require("MFRC522").connect(spi, NodeMCU.D2 /*CS*/ );
+var nfc = require("MFRC522").connect(spi, NodeMCU.D1 /*CS*/ );
 setInterval(function() {
   nfc.findCards(function(card) {
     print("Found card " + card);
     card = JSON.stringify(card);
 	}
+  );
 }
 
+            );
 // WiFi setup
 
 var wifi = require("Wifi");
 var http = require('http');
-var WIFI_NAME = "name";
+var WIFI_NAME = "Redmib";
 var WIFI_OPTIONS = {
-  password: "pass"
-}
+  password: "12345678"
+};
 
 wifi.connect(WIFI_NAME, WIFI_OPTIONS, function(err) {
   if (err) {
