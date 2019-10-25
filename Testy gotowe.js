@@ -14,6 +14,7 @@ wifi.connect(WIFI_NAME, WIFI_OPTIONS, function(err) {
   console.log("Connected!");
 });
 
+
 function karty(card) {
   card = card.replace("[", "");
   card = card.replace("]", "");
@@ -68,7 +69,7 @@ function karty(card) {
 }
 //GET
 var http = require("http");
-http.get("http://185.243.52.8/api/getCurrentLecture/E3", function(res) {
+http.get("http://185.243.52.8/api/getCurrentLecture/E4", function(res) {
   var contents = "";
   res.on("data", function(data) {
     contents += data;
@@ -193,7 +194,7 @@ function sendRequest(idlegitymacji) {
       } else {
         zwrotka = data;
       }
-      zwrotka = data;
+     
       console.log("HTTP> " + data);
     });
     res.on("close", function(data) {
